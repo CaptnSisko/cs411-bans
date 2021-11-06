@@ -4,11 +4,20 @@ dbinfo = require('./secret').dbinfo;
 
 const app = express()
 const port = 3000
+app.set('view engine', 'pug');
 
 const pool  = mysql.createPool(dbinfo);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/', function (req, res) {
+    res.render('index', { title: 'Hey', message: 'Hello there!' })
+});
+
+app.get('/report', function (req, res) {
+    res.render('report')
+});
+
+app.post('/report_submit', (req, res) => {
+    res.json({success: true});
 });
 
 app.get('/test', (req, res) => {
@@ -19,5 +28,5 @@ app.get('/test', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`);
 });
