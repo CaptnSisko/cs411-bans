@@ -1,0 +1,23 @@
+{
+  "name": "cs411-bans",
+  "version": "1.0.0",
+  "description": "Minecraft ban list project for CS 411",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaptnSisko/cs411-bans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CaptnSisko/cs411-bans/issues"
+  },
+  "homepage": "https://github.com/CaptnSisko/cs411-bans#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3-rc.0"
+  }
+}
