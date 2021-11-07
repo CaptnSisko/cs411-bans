@@ -1,0 +1,49 @@
+html
+  head
+    title= 'Report #' + report.id
+  body
+    a(href='/') go home 
+    br
+    h1 Process Report
+    table(border='1')
+      tr
+        th Submitted By
+        th Minecraft UUID
+        th Content
+        th Urgency
+        th Submitted At 
+        th Processed At
+        th Accepted
+        th Accepted By
+      tr 
+        td 
+          a(href= '/users/'+report.submitted_by)= 'User #' + report.submitted_by
+        td= report.minecraft_uuid
+        td= report.content
+        td= report.urgency_level === 3 ? "High" : report.urgency_level === 2 ? "Medium" : "Low"
+        td= report.submitted_at
+        td= report.processed_at === null ? "Unprocessed" : report.processed_at
+        td= report.accepted ? "Yes" : "No"
+        if report.processed_at === null
+          td
+            a(href= '/processreport/'+report.id)= 'Process Report #' + report.id
+        else
+          td
+            a(href= '/users/'+report.accepted_by)= 'User #' + report.accepted_by
+    if report.processed_at === null
+      form(action='/process_submit', method='POST')
+        p
+          | Admin ID:
+          input(type='hidden', name='report', value=report)
+          input(type='text', name='submitted_by', value='')
+          br
+          | Decision: 
+          select(name="accepted")
+            option(value=1) Accept
+            option(value=0) Deny
+          br
+        input(type='submit', value='Submit') 
+    else 
+      p Already Processed!
+    br
+    a(href="/delete_report/"+report.id)= 'Delete Report #' + report.id

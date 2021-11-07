@@ -1,10 +1,21 @@
 body
-  form(action='/add_movie', method='POST')
+  a(href='/') go home 
+  br
+  form(action='/report_submit', method='POST')
     p
-      | title: 
-      input(type='text', name='title', value='')
-      |          year: 
-      input(type='text', name='year', value='')
-      |          imdb: 
-      input(type='text', name='imdb', value='')
+      | User ID: 
+      input(type='text', name='submitted_by', value='')
+      br
+      | Minecraft UUID: 
+      input(type='text', name='minecraft_uuid', value='')
+      br
+      | Urgency: 
+      select(name="urgency_level")
+        option(value=1) Low
+        option(value=2) Medium
+        option(value=3) High
+      br
+      | Content: 
+      textarea(name='content', cols='30', rows='10')
+      br
     input(type='submit', value='Submit')

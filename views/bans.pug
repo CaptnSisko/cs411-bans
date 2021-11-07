@@ -1,0 +1,24 @@
+html
+  head
+  body
+    a(href='/') go home 
+    br
+    a(href='/bans/find') Find Bans by Minecraft Userid
+    br
+    br
+    table(border='1')
+      tr
+        th minecraft uuid
+        th banned by
+        th server
+        th reason
+        th start 
+        th end 
+      each ban in bans
+        tr 
+          td= ban.banned_minecraft_uuid
+          td= ban.email
+          td= ban.server
+          td= ban.reason
+          td= ban.start 
+          td= ban.end 

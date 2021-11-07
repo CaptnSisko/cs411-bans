@@ -1,0 +1,40 @@
+html
+  head
+  body
+    a(href='/') go home 
+    br
+    a(href='/report') Submit a new report
+    br
+    br
+    a(href='/reports/less-credible') Look at less credible reports.
+    br
+    br
+    table(border='1')
+      tr
+        th Report ID
+        th Submitted By
+        th Minecraft UUID
+        th Content
+        th Urgency
+        th Submitted At 
+        th Processed At
+        th Accepted
+        th Processed By
+      each report in reports
+        tr 
+          td
+            a(href= '/processreport/'+report.id)= 'Report #' + report.id
+          td 
+            a(href= '/users/'+report.submitted_by)= 'User #' + report.submitted_by
+          td= report.minecraft_uuid
+          td= report.content
+          td= report.urgency_level === 3 ? "High" : report.urgency_level === 2 ? "Medium" : "Low"
+          td= report.submitted_at
+          td= report.processed_at === null ? "Unprocessed" : report.processed_at
+          td= report.accepted ? "Yes" : "No"
+          if report.processed_at === null
+            td
+              a(href= '/processreport/'+report.id)= 'Process Report #' + report.id
+          else
+            td
+              a(href= '/users/'+report.accepted_by)= 'User #' + report.accepted_by

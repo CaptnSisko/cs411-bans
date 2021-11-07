@@ -1,0 +1,19 @@
+html 
+  head 
+  body 
+    a(href='/') go home 
+    br
+    h2 These reports were submitted by players who has been banned.
+    h2 Process these reports more carefully.
+
+    table(border='1')
+      tr 
+        th User ID
+        th Minecraft Username 
+        th Submitted Report
+      each result in results
+        tr 
+          td
+            a(href='/users/' + result.user_id)= 'User #' + result.user_id
+          td= result.mc_username 
+          td= result.report_id

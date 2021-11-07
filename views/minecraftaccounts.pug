@@ -1,0 +1,16 @@
+html
+  head
+  body
+    a(href='/') go home 
+    br
+    table(border='1')
+      tr
+        th minecraft uuid
+        th user_id
+        th minecraft_username
+      each user in users
+        tr 
+          td= user.minecraft_uuid
+          td 
+            a(href= '/users/'+user.user_id)= 'User #' + user.user_id
+          td= user.minecraft_username

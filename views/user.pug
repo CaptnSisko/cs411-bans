@@ -1,0 +1,15 @@
+html
+  head
+    title= 'User #' + userdata.id
+  body
+    a(href='/') go home 
+    br
+    table(border='1')
+      tr
+        th User ID
+        th Email
+        th Is Admin?
+      tr 
+        td= userdata.id
+        td= userdata.email
+        td= userdata.is_admin ? 'Yes' : 'No'

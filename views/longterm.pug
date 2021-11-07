@@ -1,0 +1,22 @@
+html
+  head
+  body
+    a(href='/') go home 
+    br
+    br
+    p Selecting the appeal id, ban id, user id, Minecraft username, and content of Appeals which have been accepted for people who have had bans starting 6 months ago but lasting more than 3 months. This means that they were banned fairly recently (within the past year) but for a long time (>3 months).
+    br
+    table(border='1')
+      tr
+        th Appeal ID
+        th Ban ID
+        th User ID
+        th Minecraft Username
+        th Content 
+      each result in results
+        tr 
+          td= result.appeal_id
+          td= result.ban_id
+          td= result.user_id
+          td= result.mc_username
+          td= result.content 
