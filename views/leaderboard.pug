@@ -1,0 +1,20 @@
+html
+  head
+  body
+    a(href='/') go home 
+    br
+    table(border='1')
+      tr
+        th Ranking
+        th Admin User ID
+        th Email
+        th Processed Reports
+        th Tier
+
+      each admin in admins
+        tr 
+          td= admin.ranking
+          td= admin.id
+          td= admin.email
+          td= admin.num_processed_reports
+          td= admin.tier

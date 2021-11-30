@@ -31,19 +31,23 @@ html
           td
             a(href= '/users/'+report.accepted_by)= 'User #' + report.accepted_by
     if report.processed_at === null
-      form(action='/process_submit', method='POST')
-        p
-          | Admin ID:
-          input(type='hidden', name='report', value=report)
-          input(type='text', name='submitted_by', value='')
-          br
-          | Decision: 
-          select(name="accepted")
-            option(value=1) Accept
-            option(value=0) Deny
-          br
-        input(type='submit', value='Submit') 
+      if is_admin === true
+        form(action='/process_submit', method='POST')
+          p
+            input(type='hidden', name='report', value=report)
+            br
+            | Decision: 
+            select(name="accepted")
+              option(value=1) Accept
+              option(value=0) Deny
+            br
+          input(type='submit', value='Submit') 
+      else 
+        p You must be logged in as an admin to manage this appeal
     else 
       p Already Processed!
     br
-    a(href="/delete_report/"+report.id)= 'Delete Report #' + report.id
+    if is_admin === true
+      a(href="/delete_report/"+report.id)= 'Delete Report #' + report.id
+    else 
+      p You must be an admin to delete reports!

@@ -1,15 +1,35 @@
 html
   head
-    title= title
   body
-    h1= message
+    h1 Hello there
+    br
+    br
+    if logged_in
+      p= 'Welcome back, ' + email
+      br
+      a(href='/profile') view your profile
+      br
+      a(href='/change_password') change your password
+      br
+      a(href='/verifymc') (creative component) verify a new Minecraft account
+      br
+      a(href='/report') report a player 
+      br
+      a(href='/logout') log out
+    else
+      a(href='/login') log in
+
+    br
+    br
+    br
+
     a(href='/bans') ban list
     br
     a(href='/reports') report list 
     br
     a(href='/minecraft_accounts') minecraft accounts list 
     br
-    a(href='/report') report a player 
+    a(href='/leaderboard') admin report leaderboard 
     br
     a(href='/bans/find') search bans
     br

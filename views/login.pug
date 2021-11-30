@@ -1,0 +1,11 @@
+body
+  a(href='/') go home 
+  br
+  form(action='/login_submit', method='POST')
+    p
+      | Email: 
+      input(type='text', name='email', value='')
+      br
+      | Password: 
+      input(type='text', name='password', value='')
+    input(type='submit', value='Submit')

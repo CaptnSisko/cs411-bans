@@ -1,0 +1,8 @@
+body
+  a(href='/') go home 
+  br
+  form(action='/verifymc_submit', method='POST')
+    p
+      | Use your Minecraft client to join srv.mc-oauth.net and enter the code here: 
+      input(type='text', name='code', value='')
+    input(type='submit', value='Submit')

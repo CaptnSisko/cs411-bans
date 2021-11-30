@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/CaptnSisko/cs411-bans#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "mysql2": "^2.3.3-rc.0",
+    "node-fetch": "^2.6.6",
     "pug": "^3.0.2"
   }
 }
